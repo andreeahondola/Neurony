@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center align-items-center flex-column my-5">
+  <div class="d-flex my-4">
+    <input [(ngModel)]="searchKey" placeholder="Type something..." (keyup.enter)="submit()"/>
+    <button class="btn btn-primary" type="button" (click)="submit()">
+      <p>submit</p>
+    </button>
+  </div>
+
+  <div class="shadow">
+    <div *ngFor="let item of listItems; let i = index" class="list-item">
+      <div class="row no-gutters"
+           (click)="showInfo(template)">
+        <div class="col-9 d-flex">
+          <p class="font-weight-bold pr-2">{{i + 1}}.</p>
+          <p class="pr-2">Title: {{item.name}}</p>
+        </div>
+        <div class="col-3 d-flex justify-content-between">
+          <p class="pr-2"><i class="fas fa-long-arrow-alt-up"></i> {{item.ups}} </p>
+          <p class="pr-2"><i class="fas fa-long-arrow-alt-down"></i> {{item.downs}}</p>
+        </div>
+      </div>
+
+      <ng-template #template>
+        <div class="modal-header d-flex justify-content-between">
+          <p>Content</p>
+          <i class="fas fa-times cursor-pointer" (click)="modalRef.hide()"></i>
+        </div>
+        <div class="modal-body">
+          <p *ngIf="item.content">{{item.content}}</p>
+          <p *ngIf="!item.content">There is no content to show</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <p *ngIf="listItems.length === 0">No items found</p>
+</div>
