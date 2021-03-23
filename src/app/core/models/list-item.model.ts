@@ -10,9 +10,9 @@ export interface ListItemModel {
 export class ListItem implements ListItemModel {
   id = '';
   name = '';
-  ups = -1;
-  downs = -1;
-  upvoteRatio = -1;
+  ups = 0;
+  downs = 0;
+  upvoteRatio = 0;
   content = '';
 
   constructor(dto?: ListItemModel) {

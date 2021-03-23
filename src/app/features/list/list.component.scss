@@ -49,3 +49,19 @@ button {
     background: $gray;
   }
 }
+
+.modal-header {
+  p {
+    color: $blue;
+  }
+
+  i {
+    color: $blue;
+    font-size: 1.4rem;
+    line-height: 2rem;
+
+    &:hover {
+      color: $light-blue;
+    }
+  }
+}

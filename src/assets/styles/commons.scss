@@ -11,3 +11,10 @@ p {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.text-truncate {
+  width: 40rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

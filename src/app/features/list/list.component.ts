@@ -24,8 +24,7 @@ export class ListComponent {
       (data: Array<ListItem>): void => {
         this.listItems = [...data];
 
-        this.listItems = this.listItems.sort((a, b) => a.ups < b.ups ? 1 : -1);
-        this.listItems = this.listItems.slice(0, 10);
+        this.sortItems();
       },
       (err: HttpErrorResponse): void => {
         this.listItems = [];
@@ -33,6 +32,15 @@ export class ListComponent {
   }
 
   showInfo(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    const modalConfig = {
+      animated: true,
+      class: 'modal-dialog-centered modal-lg'
+    };
+    this.modalRef = this.modalService.show(template, modalConfig);
+  }
+
+  private sortItems(): void {
+    this.listItems = this.listItems.sort((item1, item2) => item1.ups < item2.ups ? 1 : -1);
+    this.listItems = this.listItems.slice(0, 10);
   }
 }

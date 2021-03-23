@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Neurony-project"
+    }
+  },
+  "defaultProject": "Neurony-project",
+  "cli": {
+    "analytics": false
+  }
 }
